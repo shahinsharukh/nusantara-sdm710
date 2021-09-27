@@ -139,3 +139,10 @@ ro.vendor.extension_library=libqti-perfd-client.so
 # USB
 vendor.usb.diag.func.name=diag
 vendor.usb.use_ffs_mtp=0
+
+# Time
+persist.timed.enable=true
+
+# WiFi Display
+persist.debug.wfd.enable=1
+persist.sys.wfd.virtual=0

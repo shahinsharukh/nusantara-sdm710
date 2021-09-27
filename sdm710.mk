@@ -22,7 +22,7 @@ PRODUCT_COPY_FILES += \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+    $(LOCAL_PATH)/overlay-nad
 
 PRODUCT_ENFORCE_RRO_TARGETS := *
 
@@ -400,3 +400,138 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+    
+# SurfaceFlinger
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_virtual_display_dimension=4096 \
+    ro.surface_flinger.protected_contents=true \
+    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000 \
+    ro.surface_flinger.set_display_power_timer_ms=10000 \
+    ro.surface_flinger.set_touch_timer_ms=5000 \
+    ro.surface_flinger.set_idle_timer_ms=9000 \
+    ro.surface_flinger.use_smart_90_for_video=true \
+    ro.surface_flinger.wcg_composition_dataspace=143261696 \
+    ro.surface_flinger.has_HDR_display=true \
+    ro.surface_flinger.has_wide_color_display=true \
+    ro.surface_flinger.use_color_management=true
+    
+# SleepMode
+PRODUCT_PROPERTY_OVERRIDES += \
+    pm.sleep_mode=3 \
+    ro.ril.disable.power.collapse=0
+    
+
+# MiuiCamera_arm64
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libarc_layer_sgl.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libarc_layer_sgl.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libarcsoft_deflicker.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libarcsoft_deflicker.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libc++.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libc++.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libcamera_960_mpbase.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libcamera_960_mpbase.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libcamera_algoup_jni.xiaomi.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libcamera_algoup_jni.xiaomi.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libcamera_arcsoft_handgesture.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libcamera_arcsoft_handgesture.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libCameraEffectJNI.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libCameraEffectJNI.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libcamera_handgesture_mpbase.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libcamera_handgesture_mpbase.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libcamera_mianode_jni.xiaomi.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libcamera_mianode_jni.xiaomi.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libcamera_sound_effect.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libcamera_sound_effect.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libcamera_wideselfie_mpbase.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libcamera_wideselfie_mpbase.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libclone_c++_shared.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libclone_c++_shared.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libcom.xiaomi.camera.requestutil.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libcom.xiaomi.camera.requestutil.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libdeflicker_jni.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libdeflicker_jni.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libDocumentProcess.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libDocumentProcess.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libDollyZoom.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libDollyZoom.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libfenshen_apu.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libfenshen_apu.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libfenshen_snpe.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libfenshen_snpe.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libffmpeg.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libffmpeg.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libhandengine.arcsoft.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libhandengine.arcsoft.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libijkffmpeg.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libijkffmpeg.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libijkplayer.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libijkplayer.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libijksdl.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libijksdl.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libimg_utils.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libimg_utils.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libinception_video.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libinception_video.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libion.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libion.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libmialgo_saliency.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libmialgo_saliency.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libmialgo_saliency_jni.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libmialgo_saliency_jni.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libmisoundcamerasupport.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libmisoundcamerasupport.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libmiuiblursdk.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libmiuiblursdk.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libmiuinative.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libmiuinative.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libmulti-wakeup-engine.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libmulti-wakeup-engine.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libSNPE.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libSNPE.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_domains_skel.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_domains_skel.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_domains_v2.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_domains_v2.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_skel.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_skel.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_v65_domains_v2_skel.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_v65_domains_v2_skel.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_v66_domains_v2_skel.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libsnpe_dsp_v66_domains_v2_skel.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libsymphony-cpu.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libsymphony-cpu.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libvideo_extra_color_converter.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libvideo_extra_color_converter.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libvideo_extra_interpolator.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libvideo_extra_interpolator.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libvvc++_shared.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libvvc++_shared.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm64/libYuvWatermark.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm64/libYuvWatermark.so \
+
+# MiuiCamera_arm
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libarc_layer_sgl.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libarc_layer_sgl.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libcamera_algoup_jni.xiaomi.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libcamera_algoup_jni.xiaomi.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libcamera_arcsoft_handgesture.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libcamera_arcsoft_handgesture.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libCameraEffectJNI.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libCameraEffectJNI.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libcamera_handgesture_mpbase.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libcamera_handgesture_mpbase.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libcamera_mianode_jni.xiaomi.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libcamera_mianode_jni.xiaomi.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libcamera_sound_effect.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libcamera_sound_effect.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libhandengine.arcsoft.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libhandengine.arcsoft.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libmisoundcamerasupport.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libmisoundcamerasupport.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libmiuiblursdk.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libmiuiblursdk.so \
+    $(LOCAL_PATH)/prebuilts/priv-app/MiuiCamera/lib/arm/libmulti-wakeup-engine.so:$(TARGET_COPY_OUT_SYSTEM)/priv-app/MiuiCamera/lib/arm/libmulti-wakeup-engine.so \
+
+# MiuiCamera_system_arm
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/lib/libcamera_algoup_jni.xiaomi.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libcamera_algoup_jni.xiaomi.so \
+    $(LOCAL_PATH)/prebuilts/lib/libcamera_mianode_jni.xiaomi.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libcamera_mianode_jni.xiaomi.so \
+    $(LOCAL_PATH)/prebuilts/lib/libcameraservice.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libcameraservice.so \
+    $(LOCAL_PATH)/prebuilts/lib/libion.so:$(TARGET_COPY_OUT_SYSTEM)/lib/libion.so \
+    $(LOCAL_PATH)/prebuilts/lib/vendor.qti.hardware.camera.device@1.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib/vendor.qti.hardware.camera.device@1.0.so \
+    $(LOCAL_PATH)/prebuilts/lib/vendor.qti.hardware.camera.device@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib/vendor.qti.hardware.camera.device@2.0.so \
+    $(LOCAL_PATH)/prebuilts/lib/vendor.qti.hardware.camera.device@3.5.so:$(TARGET_COPY_OUT_SYSTEM)/lib/vendor.qti.hardware.camera.device@3.5.so \
+    $(LOCAL_PATH)/parts/privapp-permissions-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-miuicamera.xml \
+
+# MiuiCamera_system_arm64
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/lib64/libcamera_algoup_jni.xiaomi.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcamera_algoup_jni.xiaomi.so \
+    $(LOCAL_PATH)/prebuilts/lib64/libcamera_mianode_jni.xiaomi.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libcamera_mianode_jni.xiaomi.so \
+    $(LOCAL_PATH)/prebuilts/lib64/libion.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/libion.so \
+    $(LOCAL_PATH)/prebuilts/lib64/vendor.qti.hardware.camera.device@1.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/vendor.qti.hardware.camera.device@1.0.so \
+    $(LOCAL_PATH)/prebuilts/lib64/vendor.qti.hardware.camera.device@2.0.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/vendor.qti.hardware.camera.device@2.0.so \
+    $(LOCAL_PATH)/prebuilts/lib64/vendor.qti.hardware.camera.device@3.5.so:$(TARGET_COPY_OUT_SYSTEM)/lib64/vendor.qti.hardware.camera.device@3.5.so \
+
+# MiuiCamera_vendor_arm
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/vendor/lib/android.hardware.camera.provider@2.4-external.so:$(TARGET_COPY_OUT_VENDOR)/lib/android.hardware.camera.provider@2.4-external.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib/android.hardware.camera.provider@2.4-legacy.so:$(TARGET_COPY_OUT_VENDOR)/lib/android.hardware.camera.provider@2.4-legacy.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib/libmialgo_fs.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmialgo_fs.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib/libmialgo_sd.so:$(TARGET_COPY_OUT_VENDOR)/lib/libmialgo_sd.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib/vendor.qti.hardware.camera.device@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.qti.hardware.camera.device@1.0.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib/vendor.qti.hardware.camera.device@2.0.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.qti.hardware.camera.device@2.0.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib/vendor.qti.hardware.camera.device@3.2.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.qti.hardware.camera.device@3.2.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib/vendor.qti.hardware.camera.device@3.5.so:$(TARGET_COPY_OUT_VENDOR)/lib/vendor.qti.hardware.camera.device@3.5.so \
+
+# MiuiCamera_vendor_arm64
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilts/vendor/lib64/android.hardware.camera.provider@2.4-external.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.camera.provider@2.4-external.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib64/android.hardware.camera.provider@2.4-legacy.so:$(TARGET_COPY_OUT_VENDOR)/lib64/android.hardware.camera.provider@2.4-legacy.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib64/libmialgo_fs.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmialgo_fs.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib64/vendor.qti.hardware.camera.device@1.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.camera.device@1.0.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib64/vendor.qti.hardware.camera.device@2.0.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.camera.device@2.0.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib64/vendor.qti.hardware.camera.device@3.5.so:$(TARGET_COPY_OUT_VENDOR)/lib64/vendor.qti.hardware.camera.device@3.5.so \
+    $(LOCAL_PATH)/prebuilts/vendor/lib64/libmialgoengine.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libmialgoengine.so \
+
+# MiuiCamera default permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/miuicamera-permissions.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/default-permissions/miuicamera-permissions.xml
+
+# MiuiCamera Pyxis Features Config
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/pyxis.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/device_features/pyxis.xml
+
+# MiuiCamera sysConfig
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/miuicamera-hiddenapi-package-whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/miuicamera-hiddenapi-package-whitelist.xml

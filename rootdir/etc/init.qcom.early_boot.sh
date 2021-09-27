@@ -103,6 +103,13 @@ case "$target" in
         ;;
 esac
 
+# Start Host based Touch processing
+    case "$hw_platform" in
+            "MTP" | "Surf" | "RCM" | "QRD" )
+            start_hbtp
+            ;;
+    esac        
+    
 # Set default LCD density
 # Since LCD density has read only property, it will not overwrite previous set
 # property if any target is setting forcefully.
